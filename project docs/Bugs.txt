@@ -1,0 +1,3 @@
+        Bugs Encountered
+
+1.Tailwind config problem: Fixed By installing version 3

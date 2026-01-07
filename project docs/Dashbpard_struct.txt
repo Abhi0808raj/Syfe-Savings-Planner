@@ -1,0 +1,31 @@
+div
+├── div                    ← Header
+│   ├── div
+│   │   ├── div            ← Icon container
+│   │   └── h2             ← Title
+│   └── button             ← Refresh
+│
+├── div                    ← Stats Section
+│   ├── div                ← Total Target
+│   │   ├── div
+│   │   │   ├── icon
+│   │   │   └── span
+│   │   ├── p              ← Main value
+│   │   └── p              ← Secondary value
+│   │
+│   ├── div                ← Total Saved
+│   │   ├── div
+│   │   ├── p
+│   │   └── p
+│   │
+│   └── div                ← Overall Progress
+│       ├── div
+│       ├── p
+│       └── p
+│
+└── div                    ← Exchange Rate Info
+    ├── div
+    │   ├── div            ← Icon container
+    │   └── div
+    │       ├── p          ← Exchange rate
+    │       └── p          ← Last updated

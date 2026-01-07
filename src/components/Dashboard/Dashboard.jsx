@@ -62,43 +62,45 @@ const Dashboard = ({
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <TrendingUp />
-          <h2>Financial Overview</h2>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-2">
+          <TrendingUp className="text-gray-700" size={20}/>
+          <h2 className="text-lg font-semibold text-gray-800">Financial Overview</h2>
         </div>
 
-        <button onClick={refreshRate}>
-          <RefreshCw />
+        <button onClick={refreshRate} className="flex items-center gap-2 px-3 peer-odd:y-2 border rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50">
+          <RefreshCw size={16}/>
           Refresh Rates
         </button>
       </div>
-      <div>
-        <div>
-          <Target />
-          <p>Total Target</p>
-          <p>{formatCurrency(totalTarget, "INR")}</p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-4 mb-6">
+        <div className="border rounded-md p-4">
+          <Target className="mb-2"/>
+          <p className="text-sm text-gray-500">Total Target</p>
+          <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalTarget, "INR")}</p>
           <p>{formatCurrency(totalTarget / exchangeRate || 90, "USD")}</p>
         </div>
-        <div>
-          <Wallet />
-          <p>Total Saved</p>
-          <p>{formatCurrency(totalSaved, "INR")}</p>
+
+        <div className="border rounded-md p-4">
+          <Wallet className="mb-2"/>
+          <p className="text-sm text-gray-500">Total Saved</p>
+          <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalSaved, "INR")}</p>
           <p>{formatCurrency(totalSaved / exchangeRate || 90, "USD")}</p>
         </div>
-        <div>
-          <TrendingUp />
-          <p>Overall Progress</p>
-          <p>{overallProgress}%</p>
-          <p>Total goals completion</p>
+        <div className="border rounded-md p-4">
+          <TrendingUp className="mb-2"/>
+          <p className="text-sm text-gray-500">Overall Progress</p>
+          <p className="text-2xl font-semibold text-gray-800">{overallProgress}%</p>
+          <p className="text-sm text-gray-400">Total goals completion</p>
         </div>
       </div>
 
-      <div>
-        <ArrowRightLeft />
-        <p>Exchange Rate: 1 USD= {formatCurrency(exchangeRate || 90, "INR")}</p>
-        <p>Last updated: {formatLastUpdated(lastUpdated)}</p>
+      <div className="border rounded-md p-4 flex items-start gap-3">
+        <ArrowRightLeft className="text-gray-600 mt-1" />
+        <p className="text-sm text-gray-700 mt-1.5">Exchange Rate: 1 USD= {formatCurrency(exchangeRate || 90, "INR")}</p>
+        <p className="text-xs text-gray-400 mt-2">Last updated: {formatLastUpdated(lastUpdated)}</p>
       </div>
     </div>
   );

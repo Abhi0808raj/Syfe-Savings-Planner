@@ -5,9 +5,12 @@ import LoadingSpinner from "./components/Common/LoadingSpinner";
 
 function App() {
   return (
-    <div className="min-h-screen py-8 w-screen px-6 py-8 sm:px-6 lg:px-8"> 
+    <div className="min-h-screen py-8 w-screen px-6 sm:px-6 lg:px-8"> 
       <div className="">
+        {/* Header */}
         <Header/>
+        {/* Dashboard */}
+        <Dashboard/>
       </div>
     </div>
   );

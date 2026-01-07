@@ -1,0 +1,10 @@
+<header>
+ └── div (main container)
+     ├── div (branding section)
+     │   ├── div (icon wrapper)
+     │   │   └── Target icon
+     │   └── div (text wrapper)
+     │       ├── h1 (title)
+     │       └── p (subtitle)
+     └── button (theme toggle)
+         └── Sun / Moon icon

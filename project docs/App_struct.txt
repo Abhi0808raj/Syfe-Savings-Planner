@@ -1,0 +1,23 @@
+div (min-h-screen py-8 px-4)
+└── div (max-w-7xl mx-auto)
+    ├── Header
+    │
+    ├── Dashboard
+    │
+    ├── AddGoalForm
+    │
+    ├── div (grid grid-cols-1 lg:grid-cols-3 gap-6)
+    │   ├── div (lg:col-span-2 space-y-6)   ← Goals Section
+    │   │   ├── div (glass-card ...)         ← Empty State (if no goals)
+    │   │   │
+    │   │   └── div (space-y-4)              ← Goals List (if goals exist)
+    │   │       ├── div (flex justify-between)  ← Title + Count
+    │   │       └── GoalCard (× n)
+    │   │
+    │   └── div (space-y-6)                  ← Charts Section
+    │       ├── ProgressChart
+    │       └── div (glass-card ...)          ← Tips Card
+    │
+    ├── footer
+    │
+└── AddContributionModal

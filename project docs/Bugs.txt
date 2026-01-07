@@ -2,3 +2,4 @@
 
 1.Tailwind config problem: Fixed By installing version 3
 2. Tailwind Not Working: Fixed by adding tailwind css as plugin into vite config
+3. On submitting the Add new goal form, Got AddGoalForm.jsx:40 Uncaught TypeError: onAddGoal is not a function: It was due to missing parenthesis which resulted in failed destructuring of props

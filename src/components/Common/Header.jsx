@@ -2,7 +2,7 @@ import { Moon, Sun, Target } from "lucide-react";
 
 const Header = ({ theme, toggleTheme }) => {
   return (
-    <header className="glass-card rounded-2xl p-6 mb-8 animate-fade-in">
+    <header className="glass-card rounded-2xl p-6 mb-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600">

@@ -75,22 +75,18 @@ const Dashboard = ({
         </button>
       </div>
       <div>
-        {/* Total Target */}
         <div>
           <Target />
           <p>Total Target</p>
           <p>{formatCurrency(totalTarget, "INR")}</p>
           <p>{formatCurrency(totalTarget / exchangeRate || 90, "USD")}</p>
         </div>
-        {/* Total Saved */}
         <div>
           <Wallet />
           <p>Total Saved</p>
           <p>{formatCurrency(totalSaved, "INR")}</p>
           <p>{formatCurrency(totalSaved / exchangeRate || 90, "USD")}</p>
         </div>
-
-        {/* Overall Progress */}
         <div>
           <TrendingUp />
           <p>Overall Progress</p>
@@ -98,7 +94,7 @@ const Dashboard = ({
           <p>Total goals completion</p>
         </div>
       </div>
-      {/* Exchange Rate Info */}
+
       <div>
         <ArrowRightLeft />
         <p>Exchange Rate: 1 USD= {formatCurrency(exchangeRate || 90, "INR")}</p>

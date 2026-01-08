@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { calculateSaved, calculateRemaining, convertCurrency } from '../../utils/currency';
+import {
+  calculateSaved,
+  calculateRemaining,
+  convertCurrency
+} from '../../utils/currency';
 
 const AddContributionModal = ({
   isOpen,
@@ -52,41 +56,60 @@ const AddContributionModal = ({
   };
 
   return (
-    <div>
-      <h3>Add Contribution</h3>
-      <p><strong>Goal:</strong> {goal.name}</p>
-      <p><strong>Target:</strong> {goal.targetAmount} {goal.currency}</p>
-      <p><strong>Remaining:</strong> {remaining} {goal.currency}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Amount:</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
+    <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
+      <div className="bg-white w-full max-w-md rounded-xl p-6 shadow-lg">
+        <h3 className="text-lg font-semibold mb-2">Add Contribution</h3>
+
+        <div className="text-sm text-gray-600 mb-4">
+          <p><span className="font-medium">Goal:</span> {goal.name}</p>
+          <p><span className="font-medium">Target:</span> {goal.targetAmount} {goal.currency}</p>
+          <p><span className="font-medium">Remaining:</span> {remaining} {goal.currency}</p>
         </div>
 
-        <div>
-          <label>Currency:</label>
-          <select
-            value={currency}
-            onChange={(e) => setCurrency(e.target.value)}
-          >
-            <option value="INR">INR</option>
-            <option value="USD">USD</option>
-          </select>
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm mb-1">Amount *</label>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-        {error && <p>{error}</p>}
+          <div>
+            <label className="block text-sm mb-1">Currency *</label>
+            <select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="INR">INR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
 
-        <div>
-          <button type="submit">Add Contribution</button>
-          <button type="button" onClick={onClose}>
-            Cancel
-          </button>
-        </div>
-      </form>
+          {error && (
+            <p className="text-sm text-red-600">{error}</p>
+          )}
+
+          <div className="flex gap-3 pt-2">
+            <button
+              type="submit"
+              className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+            >
+              Add Contribution
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-100"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

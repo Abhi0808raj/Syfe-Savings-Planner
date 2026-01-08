@@ -145,10 +145,10 @@ export const AddGoalForm = ({ onAddGoal, maxGoals, currentGoalsCount }) => {
               name="currency"
               value={formData.currency}
               onChange={handleChange}
-              className="w-full rounded-md border border-gray-300 px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full rounded-md border border-gray-300 px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-black"
             >
-              <option value="INR">INR</option>
-              <option value="USD">USD</option>
+              <option className='text-black' value="INR">INR</option>
+              <option className='text-black' value="USD">USD</option>
             </select>
           </div>
         </div>

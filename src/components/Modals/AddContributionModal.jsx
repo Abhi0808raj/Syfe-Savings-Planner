@@ -73,7 +73,7 @@ const AddContributionModal = ({
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full border rounded-lg px-3 py-2 focus:outline-none bg-gray-50 focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none bg-gray-50 focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -82,7 +82,7 @@ const AddContributionModal = ({
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="w-full text-blackborder rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+              className="w-full text-black border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
             >
               <option className='text-black' value="INR">INR</option>
               <option className='text-black' value="USD">USD</option>

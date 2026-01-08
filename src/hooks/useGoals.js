@@ -1,13 +1,21 @@
 import { useState, useRef } from "react";
 
+
+
 export const useGoals = () => {
   const [goals, setGoals] = useState([]);
   const [loading] = useState(false);
+  const maxGoals = 20;
 
   const goalIdCounter = useRef(1);
   const contributionIdCounter = useRef(1);
 
   const addGoal = (goalData) => {
+    setGoals((prev) => {
+    if (prev.length >= maxGoals) {
+      return prev;
+    }
+
     const newGoal = {
       id: goalIdCounter.current++,
       name: goalData.name,
@@ -16,8 +24,8 @@ export const useGoals = () => {
       contributions: [],
       createdAt: new Date().toISOString(),
     };
-    setGoals((prev) => [...prev, newGoal]);
-    return newGoal;
+    return [...prev, newGoal];
+    });
   };
 
   const updateGoal = (goalId, updates) => {

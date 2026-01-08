@@ -68,38 +68,38 @@ const Dashboard = ({
   // console.log("Goals:", goals);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className=" bg-white p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <TrendingUp className="text-gray-700" size={20}/>
-          <h2 className="text-lg font-semibold text-gray-800">Financial Overview</h2>
+          <h2 className="text-xl font-semibold text-gray-800">Financial Overview</h2>
         </div>
 
-        <button onClick={refreshRate} className="flex items-center gap-2 px-3 peer-odd:y-2 border rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50">
+        <button onClick={refreshRate} className="flex items-center gap-2 px-3 peer-odd:y-2 border rounded-md text-sm text-green-700 bg-green-200 hover:bg-green-100">
           <RefreshCw size={16}/>
           Refresh Rates
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3  gap-4 mb-6">
-        <div className="border rounded-md p-4">
-          <Target className="mb-2"/>
-          <p className="text-sm text-gray-500">Total Target</p>
-          <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalTarget, "INR")}</p>
-          <p>{formatCurrency(totalTarget / exchangeRate || 0, "USD")}</p>
+        <div className="border rounded-md p-4 bg-blue-50">
+          <Target className="mb-2 text-blue-700"/>
+          <p className="text-sm text-black">Total Target</p>
+          <p className="text-2xl text-blue-500 font-semibold ">{formatCurrency(totalTarget, "INR")}</p>
+          <p className="text-sm text-black">{formatCurrency(totalTarget / exchangeRate || 0, "USD")}</p>
         </div>
 
-        <div className="border rounded-md p-4">
-          <Wallet className="mb-2"/>
-          <p className="text-sm text-gray-500">Total Saved</p>
-          <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalSaved, "INR")}</p>
-          <p>{formatCurrency(totalSaved / exchangeRate ||0, "USD")}</p>
+        <div className="border rounded-md p-4 bg-yellow-50">
+          <Wallet className="mb-2 text-yellow-500 bg-ye"/>
+          <p className="text-sm text-black">Total Saved</p>
+          <p className="text-2xl font-semibold text-yellow-500">{formatCurrency(totalSaved, "INR")}</p>
+          <p className="text-sm text-black">{formatCurrency(totalSaved / exchangeRate ||0, "USD")}</p>
         </div>
-        <div className="border rounded-md p-4">
-          <TrendingUp className="mb-2"/>
-          <p className="text-sm text-gray-500">Overall Progress</p>
-          <p className="text-2xl font-semibold text-gray-800">{overallProgress}%</p>
-          <p className="text-sm text-gray-400">Total goals completion</p>
+        <div className="border rounded-md p-4 bg-pink-50">
+          <TrendingUp className="mb-2 text-pink-500"/>
+          <p className="text-sm text-black">Overall Progress</p>
+          <p className="text-2xl font-semibold text-pink-500">{overallProgress}%</p>
+          <p className="text-sm text-black">Total goals completion</p>
         </div>
       </div>
 

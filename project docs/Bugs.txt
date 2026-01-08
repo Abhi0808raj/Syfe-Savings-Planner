@@ -7,3 +7,5 @@
 4. Add Contribution was not updating on submitting the form:There was a lgic issue in addgoal function
 
 5. Adding contribution was not updating overall progress.: Fixed by addoing a savedInGoalCurrency in calculateTOtals
+
+6. Max goal limit not Working: Logic issue

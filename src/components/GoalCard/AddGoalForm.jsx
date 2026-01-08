@@ -1,7 +1,8 @@
 import React from 'react'
 import { AlertCircle, Plus } from 'lucide-react';
 
-export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 }) => {
+export const AddGoalForm = ({ onAddGoal, maxGoals, currentGoalsCount }) => {
+  const maxGoalsReached = currentGoalsCount >= maxGoals;
   const [showForm, setShowForm] = React.useState(false);
   const [formData, setFormData] = React.useState({
     name: '',
@@ -17,6 +18,7 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
       [name]: value,
     }));
   };
+  // console.log('maxgoals ',maxGoals);
 
   const validateForm = () => {
     const newErrors = {};
@@ -33,12 +35,17 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (currentGoalsCount >= maxGoals) {
+      maxGoalsReached=true;
+      setError({ form: 'Maximum number of goals reached' });
+      return;
+    } 
     const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
       setError(newErrors);
       return;
     }
-
+    
     onAddGoal({
       name: formData.name.trim(),
       targetAmount: formData.targetAmount,
@@ -64,12 +71,13 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
     setShowForm(false);
   };
 
-  const maxGoalsReached = currentGoalsCount >= maxGoals;
+
+
   if (!showForm) {
     return (
-      <div className="max-w-md mx-auto">
+      <div className="max-w-screen mx-auto">
         <button
-          onClick={() => setShowForm(true)}
+          onClick={() => { if (!maxGoalsReached) setShowForm(true); }}
           disabled={maxGoalsReached}
           className={`flex items-center gap-2 px-4 py-2 rounded-md text-white ${
             maxGoalsReached ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
@@ -83,7 +91,7 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
   }
 
   return (
-    <div className="bg-white rounded-lg shadow p-6 max-w-2xl mx-auto">
+    <div className="bg-white rounded-lg shadow p-6 max-w- mx-auto">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Create New Goal</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

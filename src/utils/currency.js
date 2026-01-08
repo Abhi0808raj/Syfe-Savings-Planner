@@ -32,15 +32,15 @@ export const convertToINR = (amount, currency, exchangeRate) => {
 };
 
 export const calculateSaved = (contributions, goalCurrency, exchangeRate) => {
-  if (!contributions.length || contributions === 0) return 0;
-  return contributions.reduce((total, contributions) => {
+  if (!Array.isArray(contributions) || contributions.length === 0) return 0;
+  return contributions.reduce((total, contribution) => {
     const amountInGoalCurrency = convertCurrency(
-      contributions.amount,
-      contributions.currency,
+      Number(contribution.amount) || 0,
+      contribution.currency,
       goalCurrency,
       exchangeRate
     );
-    return total + amountInGoalCurrency;
+    return total + (Number(amountInGoalCurrency) || 0);
   }, 0);
 };
 

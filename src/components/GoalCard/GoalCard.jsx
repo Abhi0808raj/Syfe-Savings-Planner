@@ -25,7 +25,7 @@ const GoalCard = ({ goal, exchangeRate, onAddContribution, onDeleteGoal }) => {
     return (
       <div className={`goal-card ${isCompleted ? 'completed' : ''}`}>
         <div className="goal-info">
-          <h3 className="goal-title">{goal.title}</h3>
+          <h3 className="goal-title">{goal.name}</h3>
           <p className="goal-amount">
             {formatCurrency(goal.targetAmount, goal.currency)}
           </p>

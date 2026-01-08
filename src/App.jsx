@@ -31,12 +31,21 @@ function App() {
           loading={loading}
         />
         <AddGoalForm onAddGoal={handleAddGoal} />
-        <GoalCard 
-        goal={goals}
-        exchangeRate={exchangeRate || 90}
-        onAddContribution={handleAddContribution}
-        onDeleteGoal={handleDelete}
-        />
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {goals.length === 0 ? (
+              <p className="col-span-full text-gray-500">No goals yet. Add your first goal.</p>
+            ) : (
+              goals.map((g) => (
+                <GoalCard
+                  key={g.id}
+                  goal={g}
+                  exchangeRate={exchangeRate || 90}
+                  onAddContribution={() => handleOpenContribution(g)}
+                  onDeleteGoal={() => handleDelete(g.id)}
+                />
+              ))
+            )}
+          </div>
       </div>
     </div>
   );

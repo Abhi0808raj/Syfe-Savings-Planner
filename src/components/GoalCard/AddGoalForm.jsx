@@ -98,7 +98,6 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
             onChange={handleChange}
             maxLength={50}
             className="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="e.g., Emergency Fund, Trip to Japan"
           />
           {error.name && (
             <p className="mt-1 flex items-center gap-1 text-sm text-red-600">
@@ -120,7 +119,6 @@ export const AddGoalForm = ({ onAddGoal, maxGoals = 20, currentGoalsCount = 0 })
               value={formData.targetAmount}
               onChange={handleChange}
               className="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              placeholder="0"
               min="0"
             />
             {error.targetAmount && (

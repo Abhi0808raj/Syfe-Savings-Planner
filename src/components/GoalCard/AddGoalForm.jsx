@@ -36,7 +36,6 @@ export const AddGoalForm = ({ onAddGoal, maxGoals, currentGoalsCount }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currentGoalsCount >= maxGoals) {
-      maxGoalsReached=true;
       setError({ form: 'Maximum number of goals reached' });
       return;
     } 
@@ -105,7 +104,7 @@ export const AddGoalForm = ({ onAddGoal, maxGoals, currentGoalsCount }) => {
             value={formData.name}
             onChange={handleChange}
             maxLength={50}
-            className="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-full rounded-md border bg-gray-50 border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 text-black"
           />
           {error.name && (
             <p className="mt-1 flex items-center gap-1 text-sm text-red-600">
@@ -126,7 +125,7 @@ export const AddGoalForm = ({ onAddGoal, maxGoals, currentGoalsCount }) => {
               name="targetAmount"
               value={formData.targetAmount}
               onChange={handleChange}
-              className="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full rounded-md border bg-gray-50 border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 text-black"
               min="0"
             />
             {error.targetAmount && (

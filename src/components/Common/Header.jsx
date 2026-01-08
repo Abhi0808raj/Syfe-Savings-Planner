@@ -9,7 +9,7 @@ const Header = ({}) => {
             <Target size={30}className="text-white" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold">Syfe Savings Planner</h1>
+            <h1 className="text-2xl text-black font-bold">Syfe Savings Planner</h1>
             <p className="text-sm text-gray-500">
               Track your financial goals and build your future
             </p>

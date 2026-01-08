@@ -14,7 +14,6 @@ export const useGoals = () => {
       targetAmount: goalData.targetAmount,
       currency: goalData.currency,
       contributions: [],
-      savedAmount: 0,
       createdAt: new Date().toISOString(),
     };
     setGoals((prev) => [...prev, newGoal]);
@@ -44,7 +43,6 @@ export const useGoals = () => {
           ? {
               ...goal,
               contributions: [...(goal.contributions || []), newContribution],
-              savedAmount: (Number(goal.savedAmount) || 0) + Number(newContribution.amount || 0),
             }
           : goal
       )

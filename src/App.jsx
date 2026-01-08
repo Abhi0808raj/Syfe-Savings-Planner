@@ -8,8 +8,9 @@ import GoalCard from "./components/GoalCard/GoalCard";
 import AddContributionModal from "./components/Modals/AddContributionModal";
 
 function App() {
-  const { goals,addGoal, loading: goalsLoading } = useGoals();
+  const { goals,addGoal, loading: goalsLoading, addContribution, deleteGoal } = useGoals();
   const { exchangeRate, loading: rateLoading, lastUpdated, fetchExchangeRate } = useExchangeRate();
+
 
   const loading = goalsLoading || rateLoading;
   const handleAddGoal=(goalData)=>{
@@ -23,7 +24,7 @@ function App() {
   const [selectedGoal, setSelectedGoal] = useState(null);
 
   const handleOnClose=()=>{ setModalOpen(false); setSelectedGoal(null); }
-  const handleAddContribution=(goalId,contributionData)=>{AddContribution(goalId,contributionData);}
+  const handleAddContribution=(goalId,contributionData)=>{addContribution(goalId,contributionData);}
 
   const handleOpenContribution=(goal)=>{
     setSelectedGoal(goal);

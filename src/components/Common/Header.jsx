@@ -1,6 +1,6 @@
-import { Moon, Sun, Target } from "lucide-react";
+import { Target } from "lucide-react";
 
-const Header = ({ theme, toggleTheme }) => {
+const Header = ({}) => {
   return (
     <header className="glass-card rounded-2xl p-6 mb-8">
       <div className="flex items-center justify-between">
@@ -15,13 +15,6 @@ const Header = ({ theme, toggleTheme }) => {
             </p>
           </div>
         </div>
-
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          {theme === "dark" ? <Sun /> : <Moon />}
-        </button>
       </div>
     </header>
   );

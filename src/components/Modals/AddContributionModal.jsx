@@ -21,7 +21,7 @@ const AddContributionModal = ({
     e.preventDefault();
     setError('');
 
-    const numericAmount = amount;
+    const numericAmount = Number(amount);
 
     if (!numericAmount || numericAmount <= 0) {
       setError('Enter a valid amount');
@@ -43,7 +43,7 @@ const AddContributionModal = ({
     onAddContribution(goal.id, {
       amount: numericAmount,
       currency,
-      date: new Date().toISOString().split('T')[0] // today
+      date: new Date().toISOString().split('T')[0]
     });
 
     setAmount('');

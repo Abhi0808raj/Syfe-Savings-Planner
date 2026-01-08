@@ -26,12 +26,17 @@ const Dashboard = ({
     let totalSaved = 0;
     goals.forEach((goal) => {
       const targetInINR = convertToINR(
-        goal.targetAmount,
+        Number(goal.targetAmount),
+        goal.currency,
+        exchangeRate
+      );
+      const savedInGoalCurrency = calculateSaved(
+        goal.contributions,
         goal.currency,
         exchangeRate
       );
       const savedInINR = convertToINR(
-        goal.savedAmount,
+        savedInGoalCurrency,
         goal.currency,
         exchangeRate
       );
@@ -60,6 +65,7 @@ const Dashboard = ({
       minute: "2-digit",
     });
   };
+  // console.log("Goals:", goals);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -80,14 +86,14 @@ const Dashboard = ({
           <Target className="mb-2"/>
           <p className="text-sm text-gray-500">Total Target</p>
           <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalTarget, "INR")}</p>
-          <p>{formatCurrency(totalTarget / exchangeRate || 90, "USD")}</p>
+          <p>{formatCurrency(totalTarget / exchangeRate || 0, "USD")}</p>
         </div>
 
         <div className="border rounded-md p-4">
           <Wallet className="mb-2"/>
           <p className="text-sm text-gray-500">Total Saved</p>
           <p className="text-2xl font-semibold text-gray-800">{formatCurrency(totalSaved, "INR")}</p>
-          <p>{formatCurrency(totalSaved / exchangeRate || 90, "USD")}</p>
+          <p>{formatCurrency(totalSaved / exchangeRate ||0, "USD")}</p>
         </div>
         <div className="border rounded-md p-4">
           <TrendingUp className="mb-2"/>
@@ -99,7 +105,7 @@ const Dashboard = ({
 
       <div className="border rounded-md p-4 flex items-start gap-3">
         <ArrowRightLeft className="text-gray-600 mt-1" />
-        <p className="text-sm text-gray-700 mt-1.5">Exchange Rate: 1 USD= {formatCurrency(exchangeRate || 90, "INR")}</p>
+        <p className="text-sm text-gray-700 mt-1.5">Exchange Rate: 1 USD= {formatCurrency(exchangeRate || 0, "INR")}</p>
         <p className="text-xs text-gray-400 mt-2">Last updated: {formatLastUpdated(lastUpdated)}</p>
       </div>
     </div>

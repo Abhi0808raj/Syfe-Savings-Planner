@@ -58,7 +58,7 @@ const AddContributionModal = ({
   return (
     <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
       <div className="bg-white w-full max-w-md rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-semibold mb-2">Add Contribution</h3>
+        <h3 className="text-lg text-black font-semibold mb-2">Add Contribution</h3>
 
         <div className="text-sm text-gray-600 mb-4">
           <p><span className="font-medium">Goal:</span> {goal.name}</p>
@@ -68,12 +68,12 @@ const AddContributionModal = ({
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm mb-1">Amount *</label>
+            <label className="block text-black text-sm mb-1">Amount *</label>
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-lg px-3 py-2 focus:outline-none bg-gray-50 focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -82,10 +82,10 @@ const AddContributionModal = ({
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full text-blackborder rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
             >
-              <option value="INR">INR</option>
-              <option value="USD">USD</option>
+              <option className='text-black' value="INR">INR</option>
+              <option className='text-black' value="USD">USD</option>
             </select>
           </div>
 
@@ -103,7 +103,7 @@ const AddContributionModal = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-100"
+              className="px-4 py-2 border rounded-lg text-black bg-gray-50 hover:bg-gray-100"
             >
               Cancel
             </button>

@@ -5,6 +5,7 @@ import { useGoals } from "./hooks/useGoals";
 import { useExchangeRate } from "./hooks/useExchangeRate";
 import AddGoalForm from "./components/GoalCard/AddGoalForm";
 import GoalCard from "./components/GoalCard/GoalCard";
+import AddContributionModal from "./components/Modals/AddContributionModal";
 
 function App() {
   const { goals,addGoal, loading: goalsLoading } = useGoals();
@@ -17,7 +18,17 @@ function App() {
   const handleDelete=(goalId)=>{
     deleteGoal(goalId);
   }
-  const handleAddContribution=(goalId,contributionData)=>{}
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedGoal, setSelectedGoal] = useState(null);
+
+  const handleOnClose=()=>{ setModalOpen(false); setSelectedGoal(null); }
+  const handleAddContribution=(goalId,contributionData)=>{AddContribution(goalId,contributionData);}
+
+  const handleOpenContribution=(goal)=>{
+    setSelectedGoal(goal);
+    setModalOpen(true);
+  }
 
   return (
     <div className="min-h-screen py-8 w-screen px-6 sm:px-6 lg:px-8">
@@ -46,6 +57,13 @@ function App() {
               ))
             )}
           </div>
+        <AddContributionModal
+          isOpen={modalOpen}
+          onClose={handleOnClose}
+          goal={selectedGoal}
+          exchangeRate={exchangeRate || 90}
+          onAddContribution={handleAddContribution}
+        />
       </div>
     </div>
   );
